@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Employee Details</title>
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link href="css/index.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/loading.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    </head>
+    <body style="background-color: #F1654C;">
+        <div id="loading" class="loading">Loading&#8230;</div>
+        <div class="topbar text-center">
+            <img alt="KPCL" src="img/headerlogobar.png">
+        </div>
+        <div class="container" style="border-radius: 5px;">
+				<div class="topbar001 text-center">
+				<b>Employee Details</b>
+				</div>
+            <form class="form-horizontal" style="background-color: #f5f5f5; padding: 7px;">
+			
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <table class="mytable" >
+						    <tr >
+							    
+                                <td style="width: 35%;" rowspan="4" class="text-center" valign="top">
+                                    <img alt="employee" src="" width="130px" height="300px" class="img-thumbnail" id="imgemployee">
+                                </td>
+                                <td style="width: 65%; padding-left: 7px; padding-top:5px">
+                                    <label id="lblname" style="font-size: 16px;"></label>
+                                </td>
+                            </tr>
+							<tr>
+                                <td style="width: 65%; padding-left: 7px;">
+                                    <label id="lblempno"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 65%; padding-left: 7px;">
+                                    <label id="lblmobile"></label>
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td style="width: 65%; padding-left: 7px;">
+                                    <label></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100%; border-bottom: 1px solid #e1e1e1" colspan="2"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group-sm">
+                    <table class="mytable text-left">
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Designation</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spndesignation"></span></td>
+                        </tr>
+                        <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Department</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spndepartment"></span></td>
+                        </tr>
+						 <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Work LOC</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spnworkloc"></span></td>
+                        </tr>
+                        <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Company</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spncompany"></span></td>
+                        </tr>
+                        <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Block Status</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%; color: red; font:bold;" class="inputtext-td"><span id="spnblockstatus"></span></td>
+                        </tr>
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Effected From</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spnfromdate"></span></td>
+                        </tr>
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Effected To</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spntodate"></span></td>
+                        </tr>
+                        <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Reason</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="spnreason"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <input type="hidden" id="hidreqid">
+    </body>
+</html>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+    var qsParm = new Array();
+    function qs() {
+        var query = window.location.search.substring(1);
+        var parms = query.split('&');
+        for (var i = 0; i < parms.length; i++) {
+            var pos = parms[i].indexOf('=');
+            if (pos > 0) {
+                var key = parms[i].substring(0, pos);
+                var val = parms[i].substring(pos + 1);
+                qsParm[key] = val;
+            }
+        }
+
+        if (parms.length > 0) {
+            $("#hidreqid").val(qsParm["id"]);
+        }
+    }
+    $(document).ready(function () {
+        qs();
+		debugger;
+        $("#loading").show();
+        $.ajax({
+           
+			//url: 'http://202.83.27.199/SECAPI/api/EMPDetails/GetBlockedEMPDetails/' + $("#hidreqid").val(),
+			url: 'http://apps.kpcl.com/SECAPI/api/EMPDetails/GetBlockedEMPDetails/' + $("#hidreqid").val(),
+            type: 'GET',
+            data: '{}',
+            dataType: 'json',
+            success: function (result) {
+                if (result.length > 0) {
+				//var todata1 = new date(result[0].FromDate);
+					$("#imgemployee").attr('src', 'img/noimage.jpg');				
+                    //$("#lblname").text(result[0].EMPName + " " + result[0].EMPCode);
+					$("#lblname").text(result[0].EMPName);
+					$("#lblempno").text(result[0].EMPCode);
+                    $("#spndesignation").text(result[0].Designation);
+                    $("#lblmobile").text(result[0].MobileNo);
+                    $("#spndepartment").text(result[0].Department);
+                    $("#spncompany").text(result[0].Company);
+                    $("#spnblockstatus").text(result[0].BlockStatus);
+                    $("#spnreason").text(result[0].Reason);
+					$("#spnphotourl").text(result[0].PhotoUrl);
+					$("#spnworkloc").text(result[0].WorkLOC);
+					$("#spnfromdate").text(result[0].FromDate);
+					$("#spntodate").text(result[0].ToDate);					
+					$("#imgemployee").attr('src', 'http://apps.kpcl.com/BLKEMP/'+result[0].PhotoUrl);
+					//$("#imgemployee").attr('src', 'http://202.83.27.199/BLKEMP/'+result[0].PhotoUrl);
+                    //$("#imgemployee").attr('src', 'http://202.83.27.199/VPMS//Common/Documents/VstrPhotoImages/May2017//EPPhoto_636311343419707422.png');
+                    //$("#imgvisitor").attr('src', 'http://61.0.225.169/Uploads/Images/img1.jpg');
+                }
+                else {
+                    $("#imgemployee").attr('src', 'img/noimage.jpg');
+					alert('No Data found.');                    
+                }
+                $("#loading").hide();
+            },
+            error: function () {
+                $("#imgemployee").attr('src', 'img/noimage.jpg');
+                //alert('Error occurred while accessing Employee Details.');
+				alert('No Data found.');
+                $("#loading").hide();
+            }
+        });
+    });
+</script>

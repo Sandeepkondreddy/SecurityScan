@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Scan</title>
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type='text/css' href="css/index.css">
+        <link rel="stylesheet" type='text/css' href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type='text/css' href="font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" type='text/css' href="https://fonts.googleapis.com/css?family=Ubuntu">
+		<style type="text/css">
+            body{
+                font-family: Ubuntu;
+                text-align: center;
+                vertical-align: middle;
+            }
+            table{
+                width: 100%;
+                height: 90%;
+                left: 0px;
+                top: 0px;
+                margin: 0px;
+                background-color: white;
+            }
+            td{
+                padding: 2px;
+                width: 50%;
+                height: 50%;
+                vertical-align: middle;
+                text-align: center;
+            }
+            label{
+                color: white;
+                font-size: 12px;
+            }
+			.topbar{
+                background-color: #fff;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 55px;
+                vertical-align: middle;
+                padding: 10px;			
+            }
+            .topbar-icon{
+                width: 50px;
+                cursor: pointer;
+            }
+            .topbar label{
+                font-size: 13px;
+                width: 100%;
+                text-shadow: 1px 1px 2px #9D9C9C;
+            }
+            .circle{
+                background-color: #EEEFF1;
+                border-radius: 5px;
+                box-shadow: 3px 3px 2px 0px #7A7A7A;
+                height: auto;
+                padding: 8px;
+            }
+            .box{
+                border-radius: 7px;
+                padding: 5px;
+                cursor: pointer;
+                box-shadow: 2px 2px 3px #9E9D9B;
+            }
+            .box3{
+                background-color: #2C82C9;
+            }
+            .box2{
+                background-color: #2CC990;
+            }
+            .box1{
+                background-color: #F1654C;
+            }
+            .box4{
+                background-color: #83CF8F;
+            }
+			.box5{
+                background-color: #5c5f63;
+            }
+			.box6{
+                background-color: #e27c9e;
+            }
+			.box7{
+				background-color: #99b8c1;
+			}
+            .fa{
+                color: #F1FBFD;
+                text-shadow: 2px 1px 2px #787878;
+            }
+            ::-webkit-input-placeholder {
+                color: #CCCACA;
+                text-transform: uppercase;
+            }
+            :-moz-placeholder { /* Firefox 18- */
+                color: #CCCACA;
+                text-transform: uppercase;
+            }
+            ::-moz-placeholder {  /* Firefox 19+ */
+                color: #CCCACA;
+                text-transform: uppercase;
+            }
+            :-ms-input-placeholder {
+                color: #CCCACA;
+                text-transform: uppercase;
+            }
+            ::-webkit-scrollbar {
+                width: 5px;
+            }
+            ::-webkit-scrollbar-track {
+                background-color: #eaeaea;
+                border-left: 0px solid #ccc;
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #ccc;
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #aaa;
+            }
+		</style>
+    </head>
+    <body>
+        <div class="topbar text-center">
+            <img alt="KPCL" src="img/headerlogobar.png" background-color="#2C82C9">
+        </div>
+
+		<div class="container text-center">
+            <table>
+                <tr>
+                    <td style="padding: 4px;">
+                        <div class="box box1">
+                            <span><i class="fa fa-users fa-5x" aria-hidden="true"></i></span><br>
+                            <label>Visitor</label>
+                        </div>
+					</td>				
+					<td style="padding: 4px;">
+                        <div class="box box3">
+                            <span><i class="fa fa-user fa-5x" aria-hidden="true"></i></span><br>
+                            <label>Employee</label>
+                        </div>
+					</td>                    
+                </tr>				
+            </table>
+			<table>
+				<tr>
+					<td style="padding: 4px;">
+						<div id= "scan" class="box box7">
+						<br><br><br><br><br><br><br><br><br>
+						<span><i class="fa fa-qrcode fa-5x" aria-hidden="true"></i></span><br>
+                        <label id="lblScanText">Scan</label>
+						<br>
+						<br><br><br><br><br><br><br>
+						</div>
+					</td>
+				</tr>
+			</table>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){        
+        $(".box1").click(function(){
+		  var element = document.getElementById("scan");
+			  element.style.backgroundColor='#F1654C';
+		  document.getElementById('lblScanText').innerHTML ='Visitor Scan';
+            $("#loading").show();      
+        });
+        $(".box3").click(function(){
+			var element = document.getElementById("scan");
+			  element.style.backgroundColor='#2C82C9';			  
+				document.getElementById('lblScanText').innerHTML ='Employee Scan';
+            $("#loading").show();          
+        });  
+		 $(".box7").click(function(){
+			if (document.getElementById('lblScanText').innerHTML=='Scan') {
+			    alert("Select Visitor or Employee");}
+			else{
+					scan();
+				}
+			var element = document.getElementById("scan");
+			  element.style.backgroundColor='#99b8c1';			   
+            $("#loading").show();          
+        });
+
+    });
+
+	    function scan() {
+        cordova.plugins.barcodeScanner.scan(
+            function (result) {
+                if (!result.cancelled) 
+				{
+					if(document.getElementById('lblScanText').innerHTML=='Visitor Scan')
+					{
+						window.location.href = 'VisitorDetails.html?id=' + result.text;
+					}
+					else if(document.getElementById('lblScanText').innerHTML=='Employee Scan')
+					{
+						window.location.href = 'VisitorDetails.html?id=' + result.text;
+					} 
+                }
+            },
+            function (error) {
+                alert("Scanning failed: " + error);
+            }
+       );
+    }
+   
+</script>
