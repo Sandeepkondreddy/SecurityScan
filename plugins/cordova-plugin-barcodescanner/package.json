@@ -1,0 +1,55 @@
+{
+  "_from": "cordova-plugin-barcode-scanner2",
+  "_id": "cordova-plugin-barcode-scanner2@0.7.9",
+  "_inBundle": false,
+  "_integrity": "sha1-0+JtGXSek+n4FgwYxM7q2HnKam0=",
+  "_location": "/cordova-plugin-barcode-scanner2",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-barcode-scanner2",
+    "name": "cordova-plugin-barcode-scanner2",
+    "escapedName": "cordova-plugin-barcode-scanner2",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-barcode-scanner2/-/cordova-plugin-barcode-scanner2-0.7.9.tgz",
+  "_shasum": "d3e26d19749e93e9f8160c18c4ceead879ca6a6d",
+  "_spec": "cordova-plugin-barcode-scanner2",
+  "_where": "D:\\Dev\\Sandeep\\Mobile Applications\\Blook List and Visitor Details Scan\\SecurityScan",
+  "author": {
+    "name": "Martin Reinhardt"
+  },
+  "bugs": {
+    "url": "https://github.com/michael79bxl/cordova-barcode-scanner-plugin2/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-barcodescanner",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Barcode Scanner Plugin",
+  "homepage": "https://github.com/michael79bxl/cordova-barcode-scanner-plugin2#readme",
+  "keywords": [
+    "cordova",
+    "barcodescanner",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-barcode-scanner2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael79bxl/cordova-barcode-scanner-plugin2.git"
+  },
+  "version": "0.7.9"
+}

@@ -1,0 +1,55 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "com.joandilee.imeiplugin": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    }
+  }
+}

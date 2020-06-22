@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Workforce Details</title>
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link href="css/index.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/loading.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    </head>
+    <body style="background-color: #2CC990;">
+        <div id="loading" class="loading">Loading&#8230;</div>
+        <div class="topbar text-center">
+            <img alt="KPCL" src="img/headerlogobar.png">
+        </div>
+        <div class="container" style="border-radius: 5px;">
+				<div class="topbar001 text-center">
+				<b>Workforce Details</b>
+				</div>
+            <form class="form-horizontal" style="background-color: #f5f5f5; padding: 7px;">
+			
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <table class="mytable" >
+						    <tr >
+							    
+                                <td style="width: 35%;" rowspan="4" class="text-center" valign="top">
+                                    <img alt="workforce" src="" width="130px" height="300px" class="img-thumbnail" id="imgworkforce">
+                                </td>
+                                <td style="width: 65%; padding-left: 7px; padding-top:5px">
+                                    <label id="lblname" style="font-size: 16px;"></label>
+                                </td>
+                            </tr>
+							<tr>
+                                <td style="width: 65%; padding-left: 7px;">
+                                    <label id="lblempno"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 65%; padding-left: 7px;">
+                                    <label id="lblmobile"></label>
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td style="width: 65%; padding-left: 7px;">
+                                    <label></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100%; border-bottom: 1px solid #e1e1e1" colspan="2"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group-sm">
+                    <table class="mytable text-left">
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Alloted Code</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="allotedcode"></span></td>
+                        </tr>
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Card No</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="cardno"></span></td>
+                        </tr>
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Identity</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="identity"></span></td>
+                        </tr>
+                        <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Alloted To</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="allotedto"></span></td>
+                        </tr>
+						 <tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Access LOC</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="accessloc"></span></td>
+                        </tr>                        
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Valid From</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="fromdate"></span></td>
+                        </tr>
+						<tr class="inputtext-tr">
+                            <td style="width: 30%;" class="inputtext-td"><span class="datalabel">Valid To</span></td>
+                            <td style="width: 2%;" class="inputtext-td"><span> : </span></td>
+                            <td style="width: 68%;" class="inputtext-td"><span id="todate"></span></td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </form>
+        </div>
+        <input type="hidden" id="hidreqid">
+    </body>
+</html>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+    var qsParm = new Array();
+    function qs() {
+        var query = window.location.search.substring(1);
+        var parms = query.split('&');
+        for (var i = 0; i < parms.length; i++) {
+            var pos = parms[i].indexOf('=');
+            if (pos > 0) {
+                var key = parms[i].substring(0, pos);
+                var val = parms[i].substring(pos + 1);
+                qsParm[key] = val;
+            }
+        }
+
+        if (parms.length > 0) {
+            $("#hidreqid").val(qsParm["id"]);
+        }
+    }
+    $(document).ready(function () {
+        qs();
+		debugger;
+        $("#loading").show();
+        $.ajax({          
+
+			url: 'http://apps.kpcl.com/SECAPITest/api/WorkforceDetails/GetWorkforceDetails/'+ $("#hidreqid").val(),
+            type: 'GET',
+            data: '{}',
+            dataType: 'json',
+            success: function (result) {
+                if (result.length > 0) {
+					$("#imgemployee").attr('src', 'img/noimage.jpg');				
+					$("#lblname").text(result[0].WFName);
+                    $("#lblmobile").text(result[0].MobileNo);
+					$("#allotedcode").text(result[0].WFCode);					
+                    $("#cardno").text(result[0].CardNo);
+                    $("#identity").text(result[0].Indentity);
+                    $("#allotedto").text(result[0].AllotedTo);
+					$("#photourl").text(result[0].PhotoUrl);
+					$("#accessloc").text(result[0].AccessLOC);
+					$("#fromdate").text(result[0].ValidFrom);
+					$("#todate").text(result[0].ValidTo);					
+					$("#imgworkforce").attr('src', 'http://apps.kpcl.com/VPMS/'+result[0].PhotoUrl);
+					//$("#imgemployee").attr('src', 'http://202.83.27.199/BLKEMP/'+result[0].PhotoUrl);
+                    //$("#imgworkforce").attr('src', 'http://apps.kpcl.com/VPMS//Common/Documents/VstrPhotoImages/May2017//EPPhoto_636311343419707422.png');
+                    
+                }
+                else {
+                    $("#imgemployee").attr('src', 'img/noimage.jpg');
+					alert('No Data found.');                    
+                }
+                $("#loading").hide();
+            },
+            error: function () {
+                $("#imgemployee").attr('src', 'img/noimage.jpg');
+                //alert('Error occurred while accessing Employee Details.');
+				alert('No Data found.');
+                $("#loading").hide();
+            }
+        });
+    });
+</script>
