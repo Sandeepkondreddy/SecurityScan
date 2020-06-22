@@ -7,6 +7,12 @@
     "files": {}
   },
   "installed_plugins": {
+    "com.joandilee.imeiplugin": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
+    "cordova-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.kpcl.passscan"
+    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.kpcl.passscan"
     },
@@ -37,13 +43,7 @@
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.kpcl.passscan"
     },
-    "com.joandilee.imeiplugin": {
-      "PACKAGE_NAME": "com.kpcl.passscan"
-    },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.kpcl.passscan"
-    },
-    "cordova-plugin-barcodescanner": {
       "PACKAGE_NAME": "com.kpcl.passscan"
     }
   },

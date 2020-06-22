@@ -1,6 +1,22 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "com.joandilee.imeiplugin.imeiplugin",
+      "file": "plugins/com.joandilee.imeiplugin/www/imeiplugin.js",
+      "pluginId": "com.joandilee.imeiplugin",
+      "clobbers": [
+        "imeiplugin"
+      ]
+    },
+    {
+      "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+      "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+      "pluginId": "cordova-plugin-barcodescanner",
+      "clobbers": [
+        "cordova.plugins.barcodeScanner"
+      ]
+    },
+    {
       "id": "cordova-plugin-camera.Camera",
       "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
       "pluginId": "cordova-plugin-camera",
@@ -374,25 +390,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
-    },
-    {
-      "id": "com.joandilee.imeiplugin.imeiplugin",
-      "file": "plugins/com.joandilee.imeiplugin/www/imeiplugin.js",
-      "pluginId": "com.joandilee.imeiplugin",
-      "clobbers": [
-        "imeiplugin"
-      ]
-    },
-    {
-      "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-      "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-      "pluginId": "cordova-plugin-barcodescanner",
-      "clobbers": [
-        "cordova.plugins.barcodeScanner"
-      ]
     }
   ];
   module.exports.metadata = {
+    "com.joandilee.imeiplugin": "0.1",
+    "cordova-plugin-barcodescanner": "0.7.9",
     "cordova-plugin-camera": "2.0.0",
     "cordova-plugin-device": "1.1.7",
     "cordova-plugin-dialogs": "1.3.4",
@@ -404,8 +406,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-media": "3.0.1",
     "cordova-plugin-media-capture": "1.4.3",
     "cordova-plugin-statusbar": "2.4.3",
-    "com.joandilee.imeiplugin": "0.1",
-    "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-barcodescanner": "0.7.9"
+    "cordova-plugin-whitelist": "1.3.4"
   };
 });
